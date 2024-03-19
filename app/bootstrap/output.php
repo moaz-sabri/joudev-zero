@@ -39,7 +39,9 @@ class Output
         if (file_exists($viewFile)) {
 
             // Extract the data to variables
-            $this->data = (object) $obj->data;
+            if (isset($obj->data)) :
+                $this->data = (object) $obj->data;
+            endif;
 
             // Start output buffering
             ob_start();
